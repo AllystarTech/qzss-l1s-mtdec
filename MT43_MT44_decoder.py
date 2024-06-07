@@ -5,7 +5,7 @@ This is the decoder for QZSS L1S MT43 MT44
 @author: Allystar Technology Co. Limited
 
 """
-#input_path_read = "D:/cherry/QZSS L1S/nmea/COM11(Enhanced)_2024-05-20_14.50.25.GPS"  
+#input_path_read = "D:/cherry/QZSS L1S/nmea/COM5(Enhanced)_115200_2024-05-30_16.52.48.cyno"  
 #input_path_write = "D:/cherry/QZSS L1S/decoded messages/decode0517.txt" 
 
 from MT43_decoder import decoder_MT43

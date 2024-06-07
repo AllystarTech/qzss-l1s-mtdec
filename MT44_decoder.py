@@ -13,7 +13,7 @@ from MT44_ExtMsg_Match_Table import MT44_ExtMsg_msg_gen
 from MT44_CRC_decoder import MT44_CRC_dec
 
 def is_MT44_null(binary_data):
-    return int(binary_data,2) == 0b0000110111100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+    return int(binary_data,2) == 0xDE0000000000000000000000000000000000000000000000 #0b0000110111100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
 
 def decoder_MT44(hex_data, binary_data):
     Message = ''
@@ -21,7 +21,7 @@ def decoder_MT44(hex_data, binary_data):
         #print("MT44 Null Message")
         #print(hex_data)
         return ""
-    print(hex_data)
+    #print(hex_data)
     #TODO: add the decoder for MT44
     SD_data = MT44_SD_dec(binary_data[0:10])
     #Message += MT44_SD_msg_gen(SD_data)
@@ -34,7 +34,7 @@ def decoder_MT44(hex_data, binary_data):
     Message += "------\n"
     
     #SD_data.printing()
-    CAMF_data.printing()    
+    #CAMF_data.printing()    
 
     
     return Message
