@@ -2,7 +2,7 @@
 """
 MT44 Extended Message decoder
 
-@author: Allystar Technology Co. Limited
+@author:2024 Allystar Technology Co. Limited
 """
 
 class ExtendedMsg:

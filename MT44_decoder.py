@@ -2,7 +2,7 @@
 """
 This is the decoder for QZSS L1S MT44
 
-@author: Allystar Technology Co. Limited
+@author: 2024 Allystar Technology Co. Limited
 """
 
 from MT44_SD_decoder import SD, MT44_SD_dec, MT44_SD_msg_gen
@@ -31,7 +31,6 @@ def decoder_MT44(hex_data, binary_data):
     ExtendedMsg_data = MT44_ExtMsg_dec(binary_data[132:206], DCX_Type)
     Message += MT44_ExtMsg_msg_gen(ExtendedMsg_data, CAMF_data.A11)
     CRC = MT44_CRC_dec(binary_data[212:236])
-    Message += "------\n"
     
     #SD_data.printing()
     #CAMF_data.printing()    

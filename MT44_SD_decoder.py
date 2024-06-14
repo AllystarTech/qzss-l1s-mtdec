@@ -2,7 +2,7 @@
 """
 MT44 SD decoder
 
-@author: Allystar Technology Co. Limited
+@author: 2024 Allystar Technology Co. Limited
 """
 
 class SD:

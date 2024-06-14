@@ -2,7 +2,7 @@
 """
 CAMF Matching Tables 
 
-@author: Allystar Technology Co. Limited
+@author: 2024 Allystar Technology Co. Limited
 """
 
 DCX_Type_table = {
@@ -2291,7 +2291,7 @@ def MT44_CAMF_msg_gen(CAMF):
     message += 'A9-Selection of Library : ' + A9 + '\n'      
     #A10
     A10 = get_A10(CAMF.A10)
-    message += 'A10-Version of Library : LIbrary version' + A10 + '\n' 
+    message += 'A10-Version of Library : Library version' + A10 + '\n' 
     #Determine the type of DCX message
     DCX_type = get_DCX_type(CAMF.A2, CAMF.A3)
     A11 = get_A11(CAMF.A11, DCX_type, CAMF.A9)

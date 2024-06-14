@@ -3,7 +3,7 @@
 
 MT44 CRC decoder
 
-@author: Allystar Technology Co. Limited
+@author: 2024 Allystar Technology Co. Limited
 """
 
 def MT44_CRC_dec(binary_data):

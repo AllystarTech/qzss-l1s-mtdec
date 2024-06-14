@@ -2,7 +2,7 @@
 """
 This is the decoder for QZSS L1S MT43 MT44
 
-@author: Allystar Technology Co. Limited
+@author: 2024 Allystar Technology Co. Limited
 
 """
 #input_path_read = "D:/cherry/QZSS L1S/nmea/COM5(Enhanced)_115200_2024-05-30_16.52.48.cyno"  
@@ -42,18 +42,20 @@ def decoder_MT43_MT44(message, file_path_write):
             elif message_type == 44:                
                 #print(binary_data)
                 print_message = decoder_MT44(hex_data, binary_data[14:250])
-                if not(print_message == ''):
-                    count += 1
-                    #print_message += "count:" + str(count)+"\n"
+                #if not(print_message == ''):
+                #    count += 1
+                #    #print_message += "count:" + str(count)+"\n"
             else:
-                print_message += "Error in message type."
-                
+                print_message += ""#"Error in message type."
+            if print_message != '':
+                print_message += "----------\n"
+
             try:
                     with open(file_path_write, "a", encoding="utf-8") as file:
                         file.write(print_message)
                         
             except IOError:
-                print("Error writing to file.")
+                print("Error writing to file. ")
 
 
 
