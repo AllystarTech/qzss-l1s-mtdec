@@ -49,7 +49,7 @@ def decoder_MT43(binary_data):
         print_message = mt43_typhoon_dec(binary_data[7:])
         return print_message
     elif Dc == 13: #Unused
-        print_message = mt43_marine_dec(binary_data[7:])
+        print_message = ''
         return print_message
     elif Dc == 14: #Marine
         print_message = mt43_marine_dec(binary_data[7:])

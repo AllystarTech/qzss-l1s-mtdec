@@ -310,94 +310,94 @@ def get_A2(value):
 
 MatchTable_A3 = {
     0x0: {
-        0x1F: "Not Used",                        # 0b001101111
+        0x6F: "Not Used",                        # 0b001101111
         0x0A: "Not Used",                        # 0b000001010
-        0x27: "Not Used",                        # 0b001000111
-        0x6B: "Not Used"                         # 0b011011011
+        0x47: "Not Used",                        # 0b001000111
+        0xDB: "Not Used"                         # 0b011011011
     },
     0x1: {
-        0x1F: "FMMC",                            # 0b001101111
+        0x6F: "FMMC",                            # 0b001101111
         0x0A: "National Emergency Management Agency (NEMA)",       # 0b000001010
-        0x27: "National Disaster Management Office (NDMO)",         # 0b001000111
-        0x6B: "Department of Disaster Prevention and Mitigation (DDPM)"   # 0b011011011
+        0x47: "National Disaster Management Office (NDMO)",         # 0b001000111
+        0xDB: "Department of Disaster Prevention and Mitigation (DDPM)"   # 0b011011011
     },
     0x2: {
-        0x1F: "FDMA",                            # 0b001101111
+        0x6F: "FDMA",                            # 0b001101111
         0x0A: "Bureau of Meteorology (BOM)",      # 0b000001010
-        0x27: "Fiji Meteorological Service (FMS)", # 0b001000111
-        0x6B: "Thai Meteorological Department (TMD)"   # 0b011011011
+        0x47: "Fiji Meteorological Service (FMS)", # 0b001000111
+        0xDB: "Thai Meteorological Department (TMD)"   # 0b011011011
     },
     0x3: {
-        0x1F: "Related Ministries",               # 0b001101111
+        0x6F: "Related Ministries",               # 0b001101111
         0x0A: "Australian Climate Service (ACS)", # 0b000001010
-        0x27: "Hydrology Section, Fiji Water Authority (FWA)",      # 0b001000111
-        0x6B: "National Disaster Warning Center (NDWC)"   # 0b011011011
+        0x47: "Hydrology Section, Fiji Water Authority (FWA)",      # 0b001000111
+        0xDB: "National Disaster Warning Center (NDWC)"   # 0b011011011
     },
     0x4: {
-        0x1F: "Municipality",                                      # 0b001101111
+        0x6F: "Municipality",                                      # 0b001101111
         0x0A: "Geoscience Australia (GA)",                          # 0b000001010
-        0x27: "Mineral Resources Department (MRD)",                 # 0b001000111
-        0x6B: "Department of Mineral Resources (DMR)"               # 0b011011011
+        0x47: "Mineral Resources Department (MRD)",                 # 0b001000111
+        0xDB: "Department of Mineral Resources (DMR)"               # 0b011011011
     },
     0x5: {
-        0x1F: "Reserved",                                          # 0b001101111
+        0x6F: "Reserved",                                          # 0b001101111
         0x0A: "Commonwealth Scientific and Industrial Research Organisation (CSIRO)",   # 0b000001010
-        0x27: "Fiji Broadcasting Corporation (FBC)",                # 0b001000111
-        0x6B: "Navy Hydrographic Department, Royal Thai Navy (RTN)" # 0b011011011
+        0x47: "Fiji Broadcasting Corporation (FBC)",                # 0b001000111
+        0xDB: "Navy Hydrographic Department, Royal Thai Navy (RTN)" # 0b011011011
     },
     0x6: {
-        0x1F: "Reserved",                                          # 0b001101111
+        0x6F: "Reserved",                                          # 0b001101111
         0x0A: "Australian Bureau of Statistics (ABS)",              # 0b000001010
-        0x27: "Reserved",                                          # 0b001000111
-        0x6B: "Department of Water Resources (DWR)"                 # 0b011011011
+        0x47: "Reserved",                                          # 0b001000111
+        0xDB: "Department of Water Resources (DWR)"                 # 0b011011011
     },
     0x7: {
-        0x1F: "Reserved",                                          # 0b001101111
+        0x6F: "Reserved",                                          # 0b001101111
         0x0A: "Resilience New South Wales (Resilience NSW)",        # 0b000001010
-        0x27: "Reserved",                                          # 0b001000111
-        0x6B: "Royal Irrigation Department (RID)"                   # 0b011011011
+        0x47: "Reserved",                                          # 0b001000111
+        0xDB: "Royal Irrigation Department (RID)"                   # 0b011011011
     },
     0x8: {
-        0x1F: "Reserved",                                          # 0b001101111
+        0x6F: "Reserved",                                          # 0b001101111
         0x0A: "State Emergency Service New South Wales (SES)",      # 0b000001010
-        0x27: "Reserved",                                          # 0b001000111
-        0x6B: "Department of Pollution Control (DPC)"               # 0b011011011
+        0x47: "Reserved",                                          # 0b001000111
+        0xDB: "Department of Pollution Control (DPC)"               # 0b011011011
     },
     0x9: {
-        0x1F: "New South Wales Rural Fire Service (NSW RFS)",       # 0b001101111
+        0x6F: "New South Wales Rural Fire Service (NSW RFS)",       # 0b001101111
         0x0A: "Reserved",                                          # 0b000001010
-        0x27: "Geo-Informatics and Space Technology Development Agency (GISTDA)",          # 0b001000111
-        0x6B: "Reserved"                                           # 0b011011011
+        0x47: "Geo-Informatics and Space Technology Development Agency (GISTDA)",          # 0b001000111
+        0xDB: "Reserved"                                           # 0b011011011
     },
     0xA: {
-        0x1F: "Reserved",                                                     # 0b001101111
+        0x6F: "Reserved",                                                     # 0b001101111
         0x0A: "Joint Australian Tsunami Warning Centre (JATWC)",               # 0b000001010
-        0x27: "Reserved",                                                     # 0b001000111
-        0x6B: "Electricity Generating Authority of Thailand (EGAT)"            # 0b011011011
+        0x47: "Reserved",                                                     # 0b001000111
+        0xDB: "Electricity Generating Authority of Thailand (EGAT)"            # 0b011011011
     },
     0xB: {
-        0x1F: "Reserved",                                                     # 0b001101111
+        0x6F: "Reserved",                                                     # 0b001101111
         0x0A: "Flood Knowledge Centre (FKC)",                                  # 0b000001010
-        0x27: "Reserved",                                                     # 0b001000111
-        0x6B: "Royal Forest Department (RFD)"                                  # 0b011011011
+        0x47: "Reserved",                                                     # 0b001000111
+        0xDB: "Royal Forest Department (RFD)"                                  # 0b011011011
     },
     0xC: {
-        0x1F: "Reserved",                                                     # 0b001101111
+        0x6F: "Reserved",                                                     # 0b001101111
         0x0A: "Australian Broadcasting Corporation (ABC)",                     # 0b000001010
-        0x27: "Reserved",                                                     # 0b001000111
-        0x6B: "Department of Parks, Wildlife and Plant Conservation (DPWPC)"   # 0b011011011
+        0x47: "Reserved",                                                     # 0b001000111
+        0xDB: "Department of Parks, Wildlife and Plant Conservation (DPWPC)"   # 0b011011011
     },
     0xD: {
-        0x1F: "Reserved",                                                     # 0b001101111
+        0x6F: "Reserved",                                                     # 0b001101111
         0x0A: "Reserved",                                                      # 0b000001010
-        0x27: "Reserved",                                                      # 0b001000111
-        0x6B: "Water Crisis Prevention Center (WCPC)"                          # 0b011011011
+        0x47: "Reserved",                                                      # 0b001000111
+        0xDB: "Water Crisis Prevention Center (WCPC)"                          # 0b011011011
     },
     0xE: {
-        0x1F: "Reserved",                                                     # 0b001101111
+        0x6F: "Reserved",                                                     # 0b001101111
         0x0A: "Reserved",                                                      # 0b000001010
-        0x27: "Reserved",                                                      # 0b001000111
-        0x6B: "Reserved"                                                       # 0b011011011
+        0x47: "Reserved",                                                      # 0b001000111
+        0xDB: "Reserved"                                                       # 0b011011011
     }
 }
 
@@ -505,28 +505,28 @@ MatchTable_A4 = {
     0x59: "Demonstration",                                              # 0b1011001
     0x5A: "Hazardous material accident",                                # 0b1011010
     0x5B: "Life Threatening situation",                                  # 0b1011011
-    0x7C: "Major event",                                                # 0b1011100
-    0x7D: "Missing person/abduction",                                   # 0b1011101
-    0x7E: "Risk of explosion",                                           # 0b1011110
-    0x7F: "Safety warning",                                              # 0b1011111
-    0x80: "Undefined flying object",                                    # 0b1100000
-    0x81: "Unidentified animal",                                        # 0b1100001
-    0x82: "Chemical attack",                                            # 0b1100010
-    0x83: "Guerrilla attack",                                           # 0b1100011
-    0x84: "Hijack",                                                     # 0b1100100
-    0x85: "Shooting or danger due to weapons",                          # 0b1100101
-    0x86: "Special forces attack",                                      # 0b1100110
-    0x87: "Terrorism",                                                  # 0b1100111
-    0x88: "Aircraft crash",                                             # 0b1101000
-    0x89: "Bridge collapse",                                            # 0b1101001
-    0x8A: "Dangerous goods accident",                                   # 0b1101010
-    0x8B: "Inland waterway transport accident",                         # 0b1101011
-    0x8C: "Nautical disaster/Maritime/Marine Security",                 # 0b1101100
-    0x8D: "Oil spill",                                                  # 0b1101101
-    0x8E: "Road traffic incident",                                      # 0b1101110
-    0x8F: "Train/rail accident",                                        # 0b1101111
-    0x90: "Tunnel accident",                                            # 0b1110000
-    0x91: "Test alert"                                                  # 0b1110001
+    0x5C: "Major event",                                                # 0b1011100
+    0x5D: "Missing person/abduction",                                   # 0b1011101
+    0x5E: "Risk of explosion",                                           # 0b1011110
+    0x5F: "Safety warning",                                              # 0b1011111
+    0x60: "Undefined flying object",                                    # 0b1100000
+    0x61: "Unidentified animal",                                        # 0b1100001
+    0x62: "Chemical attack",                                            # 0b1100010
+    0x63: "Guerrilla attack",                                           # 0b1100011
+    0x64: "Hijack",                                                     # 0b1100100
+    0x65: "Shooting or danger due to weapons",                          # 0b1100101
+    0x66: "Special forces attack",                                      # 0b1100110
+    0x67: "Terrorism",                                                  # 0b1100111
+    0x68: "Aircraft crash",                                             # 0b1101000
+    0x69: "Bridge collapse",                                            # 0b1101001
+    0x6A: "Dangerous goods accident",                                   # 0b1101010
+    0x6B: "Inland waterway transport accident",                         # 0b1101011
+    0x6C: "Nautical disaster/Maritime/Marine Security",                 # 0b1101100
+    0x6D: "Oil spill",                                                  # 0b1101101
+    0x6E: "Road traffic incident",                                      # 0b1101110
+    0x6F: "Train/rail accident",                                        # 0b1101111
+    0x70: "Tunnel accident",                                            # 0b1110000
+    0x71: "Test alert"                                                  # 0b1110001
             '''
             0b0000000: "not used",
             0b0000001: "CBRNE - Air strike",
@@ -1075,7 +1075,8 @@ MatchTable_A18_C5 = {
     0x6A: 6.718750000,   # 0b1101010
     0x6B: 6.875000000,   # 0b1101011
     0x6C: 7.031250000,   # 0b1101100
-    0x6D: 7.187500000,   # 0b1101101        0x6E: 7.343750000,   # 0b1101110
+    0x6D: 7.187500000,   # 0b1101101        
+    0x6E: 7.343750000,   # 0b1101110
     0x6F: 7.500000000,   # 0b1101111
     0x70: 7.656250000,   # 0b1110000
     0x71: 7.812500000,   # 0b1110001
