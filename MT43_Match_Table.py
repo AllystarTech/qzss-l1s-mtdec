@@ -1,9 +1,14 @@
 # -*- coding: utf-8 -*-
-"""
-Matching tables for MT43 
 
-@author: 2024 Allystar Technology Co. Limited
-"""
+#  File Name: MT43_Match_Table.py
+# -----------------------------------------------------------------------------
+#  Matching tables for MT43
+#
+#  Copyright (c) 2024 Allystar Technology Co. Limited
+#
+#  SPDX-License-Identifier: MIT
+# -----------------------------------------------------------------------------
+
 matchtable_mt43_Co = { #6
     0: "なし",
     101: "今後若干の海面変動があるかもしれません。",

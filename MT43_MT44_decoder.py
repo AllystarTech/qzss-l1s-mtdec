@@ -1,10 +1,13 @@
 # -*- coding: utf-8 -*-
-"""
-This is the decoder for QZSS L1S MT43 MT44
 
-@author: 2024 Allystar Technology Co. Limited
-
-"""
+#  File Name: MT43_M44_decoder.py
+# -----------------------------------------------------------------------------
+#  This is the decoder for QZSS L1S MT43 MT44
+#
+#  Copyright (c) 2024 Allystar Technology Co. Limited
+#
+#  SPDX-License-Identifier: MIT
+# -----------------------------------------------------------------------------
 #input_path_read = "D:/cherry/QZSS L1S/nmea/COM5(Enhanced)_115200_2024-05-30_16.52.48.cyno"  
 #input_path_write = "D:/cherry/QZSS L1S/decoded messages/decode0517.txt" 
 

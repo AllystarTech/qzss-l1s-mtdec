@@ -1,9 +1,13 @@
 # -*- coding: utf-8 -*-
-"""
-CAMF Matching Tables 
 
-@author: 2024 Allystar Technology Co. Limited
-"""
+#  File Name: MT44_CAMF_Match_Table.py
+# -----------------------------------------------------------------------------
+#  CAMF Matching Tables 
+#
+#  Copyright (c) 2024 Allystar Technology Co. Limited
+#
+#  SPDX-License-Identifier: MIT
+# -----------------------------------------------------------------------------
 
 DCX_Type_table = {
     0:"DCX message (L-Alert)",

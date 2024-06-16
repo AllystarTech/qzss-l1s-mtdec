@@ -1,9 +1,13 @@
 # -*- coding: utf-8 -*-
-"""
-This is the decoder for QZSS L1S MT43
 
-@author: 2024 Allystar Technology Co. Limited
-"""
+#  File Name:  MT43_decoder.py
+# -----------------------------------------------------------------------------
+#  This is the decoder for QZSS L1S MT43
+#
+#  Copyright (c) 2024 Allystar Technology Co. Limited
+#
+#  SPDX-License-Identifier: MIT
+# -----------------------------------------------------------------------------
 from MT43_Match_Table import mt43_earthquakeearly_dec, mt43_hypocenter_dec, mt43_seismic_dec, \
     mt43_nankai_dec, mt43_tsunami_dec, mt43_nwptsunami_dec, mt43_volcano_dec, mt43_ashfall_dec, \
     mt43_weather_dec, mt43_flood_dec, mt43_typhoon_dec, mt43_marine_dec

@@ -1,9 +1,13 @@
 # -*- coding: utf-8 -*-
-"""
-This is the decoder for QZSS L1S MT44
 
-@author: 2024 Allystar Technology Co. Limited
-"""
+#  File Name: MT44_decoder.py
+# -----------------------------------------------------------------------------
+#  Decoder for QZSS L1S MT44
+#
+#  Copyright (c) 2024 Allystar Technology Co. Limited
+#
+#  SPDX-License-Identifier: MIT
+# -----------------------------------------------------------------------------
 
 from MT44_SD_decoder import SD, MT44_SD_dec, MT44_SD_msg_gen
 from MT44_CAMF_decoder import CAMF, MT44_CAMF_dec

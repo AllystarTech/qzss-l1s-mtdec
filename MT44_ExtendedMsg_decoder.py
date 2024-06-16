@@ -1,9 +1,13 @@
 # -*- coding: utf-8 -*-
-"""
-MT44 Extended Message decoder
 
-@author:2024 Allystar Technology Co. Limited
-"""
+#  File Name: MT44_ExtemdedMsg_decoder.py
+# -----------------------------------------------------------------------------
+#  MT44 Extended Message decoder
+#
+#  Copyright (c) 2024 Allystar Technology Co. Limited
+#
+#  SPDX-License-Identifier: MIT
+# -----------------------------------------------------------------------------
 
 class ExtendedMsg:
     def __init__(self, DCX_type):

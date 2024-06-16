@@ -1,9 +1,13 @@
 # -*- coding: utf-8 -*-
-"""
-MT44 CAMF decoder
 
-@author: 2024 Allystar Technology Co. Limited
-"""
+#  File Name: MT44 CAMF decoder.py
+# -----------------------------------------------------------------------------
+#  MT44 CAMF decoder
+#
+#  Copyright (c) 2024 Allystar Technology Co. Limited
+#
+#  SPDX-License-Identifier: MIT
+# -----------------------------------------------------------------------------
 
 class CAMF:
     def __init__(self):

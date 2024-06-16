@@ -1,9 +1,13 @@
 # -*- coding: utf-8 -*-
-"""
-MT44 SD decoder
 
-@author: 2024 Allystar Technology Co. Limited
-"""
+#  File Name: MT44_SD_decoder.py
+# -----------------------------------------------------------------------------
+#  MT44 SD decoder
+#
+#  Copyright (c) 2024 Allystar Technology Co. Limited
+#
+#  SPDX-License-Identifier: MIT
+# -----------------------------------------------------------------------------
 
 class SD:
     def __init__(self):

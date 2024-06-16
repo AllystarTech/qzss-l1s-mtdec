@@ -1,9 +1,13 @@
 # -*- coding: utf-8 -*-
-"""
-Extended Message Matching Tables 
 
-@author: 2024 Allystar Technology Co. Limited
-"""
+#  File Name: MT44_ExtemdedMsg_decoder.py
+# -----------------------------------------------------------------------------
+#  Extended Message Matching Tables 
+#
+#  Copyright (c) 2024 Allystar Technology Co. Limited
+#
+#  SPDX-License-Identifier: MIT
+# -----------------------------------------------------------------------------
 
 MatchTable_EX1 = {
 	1100:"Hokkaido",
