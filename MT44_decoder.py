@@ -19,7 +19,7 @@ from MT44_CRC_decoder import MT44_CRC_dec
 def is_MT44_null(binary_data):
     return int(binary_data,2) == 0xDE0000000000000000000000000000000000000000000000 #0b0000110111100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
 
-def decoder_MT44(hex_data, binary_data):
+def decoder_MT44(binary_data):
     Message = ''
     if is_MT44_null(binary_data[10:206]):
         #print("MT44 Null Message")
@@ -36,8 +36,9 @@ def decoder_MT44(hex_data, binary_data):
     Message += MT44_ExtMsg_msg_gen(ExtendedMsg_data, CAMF_data.A11)
     CRC = MT44_CRC_dec(binary_data[212:236])
     
+    #Save to paradict    
+    
     #SD_data.printing()
     #CAMF_data.printing()    
-
     
     return Message

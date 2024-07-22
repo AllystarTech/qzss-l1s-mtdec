@@ -5973,12 +5973,23 @@ def get_EX9(EX9data, EX8data):
                 EX9.append(country)
             start = end
     elif EX8data == 1:
-        EX9_1 = MatchTable_EX9_municipality.get(int(format(EX9data,"064b")[0:16],2),"")
-        EX9_2 = MatchTable_EX9_municipality.get(int(format(EX9data,"064b")[16:32],2),"")
-        EX9_3 = MatchTable_EX9_municipality.get(int(format(EX9data,"064b")[32:48],2),"")
-        EX9_4 = MatchTable_EX9_municipality.get(int(format(EX9data,"064b")[48:64],2),"")
-        EX9 = [EX9_1, EX9_2, EX9_3, EX9_4]
-    return EX9 
+        EX9_1_int = int(format(EX9data,"064b")[0:16],2)
+        EX9_2_int = int(format(EX9data,"064b")[16:32],2) 
+        EX9_3_int = int(format(EX9data,"064b")[32:48],2)
+        EX9_4_int = int(format(EX9data,"064b")[48:64],2)        
+        EX9_1 = MatchTable_EX9_municipality.get(EX9_1_int,"")
+        EX9_1_ = MatchTable_EX1.get(EX9_1_int,"")
+        EX9_2 = MatchTable_EX9_municipality.get(EX9_2_int,"")
+        EX9_2_ = MatchTable_EX1.get(EX9_2_int,"")
+        EX9_3 = MatchTable_EX9_municipality.get(EX9_3_int,"")
+        EX9_3_ = MatchTable_EX1.get(EX9_3_int,"")
+        EX9_4 = MatchTable_EX9_municipality.get(EX9_4_int,"")
+        EX9_4_ = MatchTable_EX1.get(EX9_4_int,"")
+        for EX9_i, EX9_i_ in {(EX9_1, EX9_1_), (EX9_2, EX9_2_),(EX9_3, EX9_3_),(EX9_4, EX9_4_)}:
+            if EX9_i != "" and EX9_i_ != "":
+                EX9.append(EX9_i+", "+EX9_i_)
+
+    return EX9
     
     
 MatchTable_EX11 = {}
@@ -5987,7 +5998,7 @@ def get_EX11(data):
     EX11 = MatchTable_EX11.get(data, "INVAID")
     return EX11 
     
-def MT44_ExtMsg_msg_gen_0(ExtMsg, DCX_type, A11):
+def MT44_ExtMsg_msg_gen_0(ExtMsg, DCX_type, A11): #DCX_type 0 or 2
     message =''
     EX1 = get_EX1(ExtMsg.EX1)
     message += "EX1-Target Area Code : " + EX1 + "\n"
@@ -6016,10 +6027,9 @@ def MT44_ExtMsg_msg_gen_1(ExtMsg):
     message += "EX8-Target Area Code List Type : " + EX8 + "\n"
     EX9 = ''
     for msg in EX9_list:
-        if not(msg == ""):
-            if not(EX9 == ""):
-                EX9 += ', '
-            EX9 += msg
+        if not(EX9 == ""):
+            EX9 += ', '
+        EX9 += msg
     message += "EX9-Target Area Code List : " + EX9 + "\n"
     return message
   
@@ -6034,7 +6044,8 @@ def MT44_ExtMsg_msg_gen(ExtMsg, A11):
     if ExtMsg.DCX_type == 0 or ExtMsg.DCX_type == 2:
         message += MT44_ExtMsg_msg_gen_0(ExtMsg, ExtMsg.DCX_type, A11)
     elif ExtMsg.DCX_type == 1:
-        message += MT44_ExtMsg_msg_gen_1(ExtMsg)
+        tmp = MT44_ExtMsg_msg_gen_1(ExtMsg)
+        message += tmp
     elif ExtMsg.DCX_type == 3:
         message += MT44_ExtMsg_msg_gen_3(ExtMsg)
     return message

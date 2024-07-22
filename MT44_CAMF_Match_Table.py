@@ -9,7 +9,7 @@
 #  SPDX-License-Identifier: MIT
 # -----------------------------------------------------------------------------
 
-DCX_Type_table = {
+MatchTable_DCX_type = {
     0:"DCX message (L-Alert)",
     1:"DCX message (J-Alert)",
     2:"DCX message (municipality-transmitted information [tentative name])",
@@ -17,7 +17,7 @@ DCX_Type_table = {
 }    
 
 def get_DCX_type_name(num):
-    return DCX_Type_table.get(num, "INVALID")
+    return MatchTable_DCX_type.get(num, "")
     
 def get_DCX_type(a2, a3):
     if a2 == 0x6f: #0b001101111
@@ -43,264 +43,265 @@ def is_DCX_JAlert(type):
     return False
 
 MatchTable_A1 = {
-    0b00: "Test",
-    0b01: "Alert",
-    0b10: "Update",
-    0b11: "All Clear"
+    0x0: "Test",      #0b00
+    0x1: "Alert",     #0b01
+    0x3: "Update",    #0b10
+    0x4: "All Clear"  #0b11
 }
 
 def get_A1(value):
-    return MatchTable_A1.get(value, "Unknown")
+    return MatchTable_A1.get(value, "")
 
-MatchTable_A2 = {
-    0x0: "Afghanistan",                                  # 0b000000000
-    0x1: "Albania",                                      # 0b000000001
-    0x2: "Antarctica",                                   # 0b000000010
-    0x3: "Algeria",                                      # 0b000000011
-    0x4: "American Samoa",                               # 0b000000100
-    0x5: "Andorra",                                      # 0b000000101
-    0x6: "Angola",                                       # 0b000000110
-    0x7: "Antigua and Barbuda",                          # 0b000000111
-    0x8: "Azerbaijan",                                   # 0b000001000
-    0x9: "Argentina",                                    # 0b000001001
-    0xA: "Australia",                                    # 0b000001010
-    0xB: "Austria",                                      # 0b000001011
-    0xC: "Bahamas (the)",                                # 0b000001100
-    0xD: "Bahrain",                                      # 0b000001101
-    0xE: "Bangladesh",                                   # 0b000001110
-    0xF: "Armenia",                                      # 0b000001111
-    0x10: "Barbados",                                    # 0b000010000
-    0x11: "Belgium",                                     # 0b000010001
-    0x12: "Bermuda",                                     # 0b000010010
-    0x13: "Bhutan",                                      # 0b000010011
-    0x14: "Bolivia (Plurinational State of)",            # 0b000010100
-    0x15: "Bosnia and Herzegovina",                      # 0b000010101
-    0x16: "Botswana",                                    # 0b000010110
-    0x17: "Bouvet Island",                               # 0b000010111
-    0x18: "Brazil",                                      # 0b000011000
-    0x19: "Belize",                                      # 0b000011001
-    0x1A: "British Indian Ocean Territory (the)",           # 0b000011010
-    0x1B: "Solomon Islands",                                # 0b000011011
-    0x1C: "Virgin Islands (British)",                       # 0b000011100
-    0x1D: "Brunei Darussalam",                              # 0b000011101
-    0x1E: "Bulgaria",                                       # 0b000011110
-    0x1F: "Myanmar",                                        # 0b000011111
-    0x20: "Burundi",                                       # 0b000100000
-    0x21: "Belarus",                                       # 0b000100001
-    0x22: "Cambodia",                                      # 0b000100010
-    0x23: "Cameroon",                                      # 0b000100011
-    0x24: "Canada",                                        # 0b000100100
-    0x25: "Cabo Verde",                                    # 0b000100101
-    0x26: "Cayman Islands (the)",                          # 0b000100110
-    0x27: "Central African Republic (the)",                # 0b000100111
-    0x28: "Sri Lanka",                                     # 0b000101000
-    0x29: "Chad",                                          # 0b000101001
-    0x2A: "Chile",                                         # 0b000101010
-    0x2B: "China",                                         # 0b000101011
-    0x2C: "Taiwan (Province of China)",                    # 0b000101100
-    0x2D: "Christmas Island",                              # 0b000101101
-    0x2E: "Cocos (Keeling) Islands (the)",                 # 0b000101110
-    0x2F: "Colombia",                                      # 0b000101111
-    0x30: "Comoros (the)",                                 # 0b000110000
-    0x31: "Mayotte",                                       # 0b000110001
-    0x32: "Congo (the)",                                   # 0b000110010
-    0x33: "Congo (the Democratic Republic of the)",        # 0b000110011
-    0x34: "Cook Islands (the)",                            # 0b000110100
-    0x35: "Costa Rica",                                    # 0b000110101
-    0x36: "Croatia",                                       # 0b000110110
-    0x37: "Cuba",                                          # 0b000110111
-    0x38: "Cyprus",                                        # 0b000111000
-    0x39: "Czechia",                                       # 0b000111001
-    0x3A: "Benin",                                         # 0b000111010
-    0x3B: "Denmark",                                       # 0b000111011
-    0x3C: "Dominica",                                      # 0b000111100
-    0x3D: "Dominican Republic (the)",                      # 0b000111101
-    0x3E: "Ecuador",                                       # 0b000111110
-    0x3F: "El Salvador",                                   # 0b000111111
-    0x40: "Equatorial Guinea",                             # 0b001000000
-    0x41: "Ethiopia",                                      # 0b001000001
-    0x42: "Eritrea",                                       # 0b001000010
-    0x43: "Estonia",                                       # 0b001000011
-    0x44: "Faroe Islands (the)",                           # 0b001000100
-    0x45: "Falkland Islands (the) [Malvinas]",             # 0b001000101
-    0x46: "South Georgia and the South Sandwich Islands",  # 0b001000110
-    0x47: "Fiji",                                          # 0b001000111
-    0x48: "Finland",                                      # 0b001001000
-    0x49: "Åland Islands",                                # 0b001001001
-    0x50: "France",                                       # 0b001001010
-    0x51: "French Guiana",                                # 0b001001011
-    0x52: "French Polynesia",                             # 0b001001100
-    0x53: "French Southern Territories (the)",            # 0b001001101
-    0x54: "Djibouti",                                     # 0b001001110
-    0x55: "Gabon",                                        # 0b001001111
-    0x56: "Georgia",                                      # 0b001010000
-    0x57: "Gambia (the)",                                 # 0b001010001
-    0x58: "Palestine, State of",                          # 0b001010010
-    0x59: "Germany",                                      # 0b001010011
-    0x5A: "Ghana",                                        # 0b001010100
-    0x5B: "Gibraltar",                                    # 0b001010101
-    0x5C: "Kiribati",                                     # 0b001010110
-    0x5D: "Greece",                                       # 0b001010111
-    0x5E: "Greenland",                                    # 0b001011000
-    0x5F: "Grenada",                                      # 0b001011001
-    0x60: "Guadeloupe",                                   # 0b001011010
-    0x61: "Guam",                                         # 0b001011011
-    0x62: "Guatemala",                                    # 0b001011100
-    0x63: "Guinea",                                       # 0b001011101
-    0x64: "Guyana",                                       # 0b001011110
-    0x65: "Haiti",                                        # 0b001011111
-    0x66: "Heard Island and McDonald Islands",            # 0b001100000
-    0x67: "Holy See (the)",                               # 0b001100001
-    0x68: "Honduras",                                     # 0b001100010
-    0x69: "Hong Kong",                                    # 0b001100011
-    0x6A: "Hungary",                                      # 0b001100100
-    0x6B: "Iceland",                                      # 0b001100101
-    0x6C: "India",                                        # 0b001100110
-    0x6D: "Indonesia",                                    # 0b001100111
-    0x6E: "Iran (Islamic Republic of)",                   # 0b001101000
-    0x6F: "Iraq",                                         # 0b001101001
-    0x70: "Ireland",                                      # 0b001101010
-    0x71: "Israel",                                       # 0b001101011
-    0x72: "Italy",                                        # 0b001101100
-    0x73: "Côte d'Ivoire",                                # 0b001101101
-    0x74: "Jamaica",                                      # 0b001101110
-    0x75: "Japan",                                        # 0b001101111
-    0x76: "Kazakhstan",                                   # 0b001110000
-    0x77: "Jordan",                                       # 0b001110001
-    0x78: "Kenya",                                        # 0b001110010
-    0x79: "Korea (the Democratic People's Republic of)",  # 0b001110011
-    0x7A: "Korea (the Republic of)",                      # 0b001110100
-    0x7B: "Kuwait",                                       # 0b001110101
-    0x7C: "Kyrgyzstan",                                   # 0b001110110
-    0x7D: "Lao People's Democratic Republic (the)",       # 0b001110111
-    0x7E: "Lebanon",                                      # 0b001111000
-    0x7F: "Lesotho",                                      # 0b001111001
-    0x80: "Latvia",                                       # 0b001111010
-    0x81: "Liberia",                                      # 0b001111011
-    0x82: "Liechtenstein",                                # 0b001111101
-    0x83: "Lithuania",                                    # 0b001111110
-    0x84: "Luxembourg",                                   # 0b001111111
-    0x85: "Macao",                                        # 0b010000000
-    0x86: "Madagascar",                                   # 0b010000001
-    0x87: "Malawi",                                       # 0b010000010
-    0x88: "Malaysia",                                     # 0b010000011
-    0x89: "Maldives",                                     # 0b010000100
-    0x8A: "Mali",                                         # 0b010000101
-    0x8B: "Malta",                                        # 0b010000110
-    0x8C: "Martinique",                                   # 0b010000111
-    0x8D: "Mauritania",                                   # 0b010001000
-    0x8E: "Mauritius",                                    # 0b010001001
-    0x8F: "Mexico",                                       # 0b010001010
-    0x90: "Monaco",                                       # 0b010001011
-    0x91: "Mongolia",                                     # 0b010001100
-    0x92: "Moldova (the Republic of)",                    # 0b010001101
-    0x93: "Montenegro",                                   # 0b010001110
-    0x94: "Montserrat",                                   # 0b010001111
-    0x95: "Morocco",                                      # 0b010010000
-    0x96: "Mozambique",                                   # 0b010010001
-    0x97: "Oman",                                         # 0b010010010
-    0x98: "Namibia",                                      # 0b010010011
-    0x99: "Nauru",                                         # 0b010010100
-    0x9A: "Nepal",                                         # 0b010010101
-    0x9B: "Netherlands (the)",                             # 0b010010110
-    0x9C: "Curaçao",                                       # 0b010010111
-    0x9D: "Aruba",                                         # 0b010011000
-    0x9E: "Sint Maarten (Dutch part)",                     # 0b010011001
-    0x9F: "Bonaire, Sint Eustatius and Saba",               # 0b010011010
-    0xA0: "New Caledonia",                                 # 0b010011011
-    0xA1: "Vanuatu",                                       # 0b010011100
-    0xA2: "New Zealand",                                   # 0b010011101
-    0xA3: "Nicaragua",                                     # 0b010011110
-    0xA4: "Niger (the)",                                   # 0b010011111
-    0xA5: "Nigeria",                                       # 0b010100000
-    0xA6: "Niue",                                          # 0b010100001
-    0xA7: "Norfolk Island",                                # 0b010100010
-    0xA8: "Norway",                                        # 0b010100011
-    0xA9: "Northern Mariana Islands (the)",                # 0b010100100
-    0xAA: "United States Minor Outlying Islands (the)",    # 0b010100101
-    0xAB: "Micronesia (Federated States of)",              # 0b010100110
-    0xAC: "Marshall Islands (the)",                        # 0b010100111
-    0xAD: "Palau",                                         # 0b010101000
-    0xAE: "Pakistan",                                      # 0b010101001
-    0xAF: "Panama",                                        # 0b010101010
-    0xB0: "Papua New Guinea",                              # 0b010101011
-    0xB1: "Paraguay",                                      # 0b010101100
-    0xB2: "Peru",                                          # 0b010101101
-    0xB3: "Philippines (the)",                             # 0b010101110
-    0xB4: "Pitcairn",                                      # 0b010101111
-    0xB5: "Poland",                                        # 0b010110000
-    0xB6: "Portugal",                                      # 0b010110001
-    0xB7: "Guinea-Bissau",                                 # 0b010110010
-    0xB8: "Timor-Leste",                                   # 0b010110011
-    0xB9: "Puerto Rico",                                   # 0b010110100
-    0xBA: "Qatar",                                         # 0b010110101
-    0xBB: "Réunion",                                       # 0b010110110
-    0xBC: "Romania",                                       # 0b010110111
-    0xBD: "Russian Federation (the)",                      # 0b010111000
-    0xBE: "Rwanda",                                        # 0b010111001
-    0xBF: "Saint Barthélemy",                              # 0b010111010
-    0xC0: "Saint Helena, Ascension and Tristan da Cunha",  # 0b010111011
-    0xC1: "Saint Kitts and Nevis",                         # 0b010111100
-    0xC2: "Anguilla",                                      # 0b010111101
-    0xC3: "Saint Lucia",                                   # 0b010111110
-    0xC4: "Saint Martin (French part)",                    # 0b010111111
-    0xC5: "Saint Pierre and Miquelon",                     # 0b011000000
-    0xC6: "Saint Vincent and the Grenadines",              # 0b011000001
-    0xC7: "San Marino",                                    # 0b011000010
-    0xC8: "Sao Tome and Principe",                         # 0b011000011
-    0xC9: "Saudi Arabia",                                  # 0b011000100
-    0xCA: "Senegal",                                       # 0b011000101
-    0xCB: "Serbia",                                        # 0b011000110
-    0xCC: "Seychelles",                                    # 0b011000111
-    0xCD: "Sierra Leone",                                  # 0b011001000
-    0xCE: "Singapore",                                     # 0b011001001
-    0xCF: "Slovakia",                                      # 0b011001010
-    0xD0: "Viet Nam",                                      # 0b011001011
-    0xD1: "Slovenia",                                      # 0b011001100
-    0xD2: "Somalia",                                       # 0b011001101
-    0xD3: "South Africa",                                  # 0b011001110
-    0xD4: "Zimbabwe",                                      # 0b011001111
-    0xD5: "Spain",                                         # 0b011010000
-    0xD6: "South Sudan",                                   # 0b011010001
-    0xD7: "Sudan (the)",                                  # 0b011010010
-    0xD8: "Western Sahara*",                              # 0b011010011
-    0xD9: "Suriname",                                     # 0b011010100
-    0xDA: "Svalbard and Jan Mayen",                       # 0b011010101
-    0xDB: "Eswatini",                                     # 0b011010110
-    0xDC: "Sweden",                                       # 0b011010111
-    0xDD: "Switzerland",                                  # 0b011011000
-    0xDE: "Syrian Arab Republic (the)",                   # 0b011011001
-    0xDF: "Tajikistan",                                   # 0b011011010
-    0xE0: "Thailand",                                     # 0b011011011
-    0xE1: "Togo",                                         # 0b011011100
-    0xE2: "Tokelau",                                      # 0b011011101
-    0xE3: "Tonga",                                        # 0b011011110
-    0xE4: "Trinidad and Tobago",                          # 0b011011111
-    0xE5: "United Arab Emirates (the)",                   # 0b011100000
-    0xE6: "Tunisia",                                      # 0b011100001
-    0xE7: "Turkey",                                       # 0b011100010
-    0xE8: "Turkmenistan",                                 # 0b011100011
-    0xE9: "Turks and Caicos Islands (the)",               # 0b011100100
-    0xEA: "Tuvalu",                                       # 0b011100101
-    0xEB: "Uganda",                                       # 0b011100110
-    0xEC: "Ukraine",                                      # 0b011100111
-    0xED: "North Macedonia",                              # 0b011101000
-    0xEE: "Egypt",                                        # 0b011101001
-    0xEF: "United Kingdom of Great Britain and Northern Ireland (the)",  # 0b011101010
-    0xF0: "Guernsey",                                     # 0b011101011
-    0xF1: "Jersey",                                     # 0b011101100
-    0xF2: "Isle of Man",                                # 0b011101101
-    0xF3: "Tanzania, the United Republic of",            # 0b011101110
-    0xF4: "United States of America (the)",              # 0b011101111
-    0xF5: "Virgin Islands (U.S.)",                      # 0b011110000
-    0xF6: "Burkina Faso",                               # 0b011110001
-    0xF7: "Uruguay",                                    # 0b011110010
-    0xF8: "Uzbekistan",                                 # 0b011110011
-    0xF9: "Venezuela (Bolivarian Republic of)",         # 0b011110100
-    0xFA: "Wallis and Futuna",                          # 0b011110101
-    0xFB: "Samoa",                                      # 0b011110110
-    0xFC: "Yemen",                                      # 0b011110111
-    0xFD: "Zambia"                                      # 0b011111000
+MatchTable_A2 = {        
+    0x0: "Afghanistan",                                                #0b000000000
+    0x1: "Albania",                                                    #0b000000001
+    0x2: "Antarctica",                                                 #0b000000010
+    0x3: "Algeria",                                                    #0b000000011
+    0x4: "American Samoa",                                             #0b000000100
+    0x5: "Andorra",                                                    #0b000000101
+    0x6: "Angola",                                                     #0b000000110
+    0x7: "Antigua and Barbuda",                                        #0b000000111
+    0x8: "Azerbaijan",                                                 #0b000001000
+    0x9: "Argentina",                                                  #0b000001001
+    0xA: "Australia",                                                  #0b000001010
+    0xB: "Austria",                                                    #0b000001011
+    0xC: "Bahamas (the)",                                              #0b000001100
+    0xD: "Bahrain",                                                    #0b000001101
+    0xE: "Bangladesh",                                                 #0b000001110
+    0xF: "Armenia",                                                    #0b000001111
+    0x10: "Barbados",                                                  #0b000010000
+    0x11: "Belgium",                                                   #0b000010001
+    0x12: "Bermuda",                                                   #0b000010010
+    0x13: "Bhutan",                                                    #0b000010011
+    0x14: "Bolivia (Plurinational State of)",                          #0b000010100
+    0x15: "Bosnia and Herzegovina",                                    #0b000010101
+    0x16: "Botswana",                                                  #0b000010110
+    0x17: "Bouvet Island",                                             #0b000010111
+    0x18: "Brazil",                                                    #0b000011000
+    0x19: "Belize",                                                    #0b000011001
+    0x1A: "British Indian Ocean Territory (the)",                      #0b000011010
+    0x1B: "Solomon Islands",                                           #0b000011011
+    0x1C: "Virgin Islands (British)",                                  #0b000011100
+    0x1D: "Brunei Darussalam",                                         #0b000011101
+    0x1E: "Bulgaria",                                                  #0b000011110
+    0x1F: "Myanmar",                                                   #0b000011111
+    0x20: "Burundi",                                                   #0b000100000
+    0x21: "Belarus",                                                   #0b000100001
+    0x22: "Cambodia",                                                  #0b000100010
+    0x23: "Cameroon",                                                  #0b000100011
+    0x24: "Canada",                                                    #0b000100100
+    0x25: "Cabo Verde",                                                #0b000100101
+    0x26: "Cayman Islands (the)",                                      #0b000100110
+    0x27: "Central African Republic (the)",                            #0b000100111
+    0x28: "Sri Lanka",                                                 #0b000101000
+    0x29: "Chad",                                                      #0b000101001
+    0x2A: "Chile",                                                     #0b000101010
+    0x2B: "China",                                                     #0b000101011
+    0x2C: "Taiwan (Province of China)",                                #0b000101100
+    0x2D: "Christmas Island",                                          #0b000101101
+    0x2E: "Cocos (Keeling) Islands (the)",                             #0b000101110
+    0x2F: "Colombia",                                                  #0b000101111
+    0x30: "Comoros (the)",                                             #0b000110000
+    0x31: "Mayotte",                                                   #0b000110001
+    0x32: "Congo (the)",                                               #0b000110010
+    0x33: "Congo (the Democratic Republic of the)",                    #0b000110011
+    0x34: "Cook Islands (the)",                                        #0b000110100
+    0x35: "Costa Rica",                                                #0b000110101
+    0x36: "Croatia",                                                   #0b000110110
+    0x37: "Cuba",                                                      #0b000110111
+    0x38: "Cyprus",                                                    #0b000111000
+    0x39: "Czechia",                                                   #0b000111001
+    0x3A: "Benin",                                                     #0b000111010
+    0x3B: "Denmark",                                                   #0b000111011
+    0x3C: "Dominica",                                                  #0b000111100
+    0x3D: "Dominican Republic (the)",                                  #0b000111101
+    0x3E: "Ecuador",                                                   #0b000111110
+    0x3F: "El Salvador",                                               #0b000111111
+    0x40: "Equatorial Guinea",                                         #0b001000000
+    0x41: "Ethiopia",                                                  #0b001000001
+    0x42: "Eritrea",                                                   #0b001000010
+    0x43: "Estonia",                                                   #0b001000011
+    0x44: "Faroe Islands (the)",                                       #0b001000100
+    0x45: "Falkland Islands (the) [Malvinas]",                         #0b001000101
+    0x46: "South Georgia and the South Sandwich Islands",              #0b001000110
+    0x47: "Fiji",                                                      #0b001000111
+    0x48: "Finland",                                                   #0b001001000
+    0x49: "Åland Islands",                                             #0b001001001
+    0x4A: "France",                                                    #0b001001010
+    0x4B: "French Guiana",                                             #0b001001011
+    0x4C: "French Polynesia",                                          #0b001001100
+    0x4D: "French Southern Territories (the)",                         #0b001001101
+    0x4E: "Djibouti",                                                  #0b001001110
+    0x4F: "Gabon",                                                     #0b001001111
+    0x50: "Georgia",                                                   #0b001010000
+    0x51: "Gambia (the)",                                              #0b001010001
+    0x52: "Palestine, State of",                                       #0b001010010
+    0x53: "Germany",                                                   #0b001010011
+    0x54: "Ghana",                                                     #0b001010100
+    0x55: "Gibraltar",                                                 #0b001010101
+    0x56: "Kiribati",                                                  #0b001010110
+    0x57: "Greece",                                                    #0b001010111
+    0x58: "Greenland",                                                 #0b001011000
+    0x59: "Grenada",                                                   #0b001011001
+    0x5A: "Guadeloupe",                                                #0b001011010
+    0x5B: "Guam",                                                      #0b001011011
+    0x5C: "Guatemala",                                                 #0b001011100
+    0x5D: "Guinea",                                                    #0b001011101
+    0x5E: "Guyana",                                                    #0b001011110
+    0x5F: "Haiti",                                                     #0b001011111
+    0x60: "Heard Island and McDonald Islands",                         #0b001100000
+    0x61: "Holy See (the)",                                            #0b001100001
+    0x62: "Honduras",                                                  #0b001100010
+    0x63: "Hong Kong",                                                 #0b001100011
+    0x64: "Hungary",                                                   #0b001100100
+    0x65: "Iceland",                                                   #0b001100101
+    0x66: "India",                                                     #0b001100110
+    0x67: "Indonesia",                                                 #0b001100111
+    0x68: "Iran (Islamic Republic of)",                                #0b001101000
+    0x69: "Iraq",                                                      #0b001101001
+    0x6A: "Ireland",                                                   #0b001101010
+    0x6B: "Israel",                                                    #0b001101011
+    0x6C: "Italy",                                                     #0b001101100
+    0x6D: "Côte d'Ivoire",                                             #0b001101101
+    0x6E: "Jamaica",                                                   #0b001101110
+    0x6F: "Japan",                                                     #0b001101111
+    0x70: "Kazakhstan",                                                #0b001110000
+    0x71: "Jordan",                                                    #0b001110001
+    0x72: "Kenya",                                                     #0b001110010
+    0x73: "Korea (the Democratic People's Republic of)",               #0b001110011
+    0x74: "Korea (the Republic of)",                                   #0b001110100
+    0x75: "Kuwait",                                                    #0b001110101
+    0x76: "Kyrgyzstan",                                                #0b001110110
+    0x77: "Lao People's Democratic Republic (the)",                    #0b001110111
+    0x78: "Lebanon",                                                   #0b001111000
+    0x79: "Lesotho",                                                   #0b001111001
+    0x7A: "Latvia",                                                    #0b001111010
+    0x7B: "Liberia",                                                   #0b001111011
+    0x7C: "Libya",                                                     #0b001111100
+    0x7D: "Liechtenstein",                                             #0b001111101
+    0x7E: "Lithuania",                                                 #0b001111110
+    0x7F: "Luxembourg",                                                #0b001111111
+    0x80: "Macao",                                                     #0b010000000
+    0x81: "Madagascar",                                                #0b010000001
+    0x82: "Malawi",                                                    #0b010000010
+    0x83: "Malaysia",                                                  #0b010000011
+    0x84: "Maldives",                                                  #0b010000100
+    0x85: "Mali",                                                      #0b010000101
+    0x86: "Malta",                                                     #0b010000110
+    0x87: "Martinique",                                                #0b010000111
+    0x88: "Mauritania",                                                #0b010001000
+    0x89: "Mauritius",                                                 #0b010001001
+    0x8A: "Mexico",                                                    #0b010001010
+    0x8B: "Monaco",                                                    #0b010001011
+    0x8C: "Mongolia",                                                  #0b010001100
+    0x8D: "Moldova (the Republic of)",                                 #0b010001101
+    0x8E: "Montenegro",                                                #0b010001110
+    0x8F: "Montserrat",                                                #0b010001111
+    0x90: "Morocco",                                                   #0b010010000
+    0x91: "Mozambique",                                                #0b010010001
+    0x92: "Oman",                                                      #0b010010010
+    0x93: "Namibia",                                                   #0b010010011
+    0x94: "Nauru",                                                     #0b010010100
+    0x95: "Nepal",                                                     #0b010010101
+    0x96: "Netherlands (the)",                                         #0b010010110
+    0x97: "Curaçao",                                                   #0b010010111
+    0x98: "Aruba",                                                     #0b010011000
+    0x99: "Sint Maarten (Dutch part)",                                 #0b010011001
+    0x9A: "Bonaire, Sint Eustatius and Saba",                          #0b010011010
+    0x9B: "New Caledonia",                                             #0b010011011
+    0x9C: "Vanuatu",                                                   #0b010011100
+    0x9D: "New Zealand",                                               #0b010011101
+    0x9E: "Nicaragua",                                                 #0b010011110
+    0x9F: "Niger (the)",                                               #0b010011111
+    0xA0: "Nigeria",                                                   #0b010100000
+    0xA1: "Niue",                                                      #0b010100001
+    0xA2: "Norfolk Island",                                            #0b010100010
+    0xA3: "Norway",                                                    #0b010100011
+    0xA4: "Northern Mariana Islands (the)",                            #0b010100100
+    0xA5: "United States Minor Outlying Islands (the)",                #0b010100101
+    0xA6: "Micronesia (Federated States of)",                          #0b010100110
+    0xA7: "Marshall Islands (the)",                                    #0b010100111
+    0xA8: "Palau",                                                     #0b010101000
+    0xA9: "Pakistan",                                                  #0b010101001
+    0xAA: "Panama",                                                    #0b010101010
+    0xAB: "Papua New Guinea",                                          #0b010101011
+    0xAC: "Paraguay",                                                  #0b010101100
+    0xAD: "Peru",                                                      #0b010101101
+    0xAE: "Philippines (the)",                                         #0b010101110
+    0xAF: "Pitcairn",                                                  #0b010101111
+    0xB0: "Poland",                                                    #0b010110000
+    0xB1: "Portugal",                                                  #0b010110001
+    0xB2: "Guinea-Bissau",                                             #0b010110010
+    0xB3: "Timor-Leste",                                               #0b010110011
+    0xB4: "Puerto Rico",                                               #0b010110100
+    0xB5: "Qatar",                                                     #0b010110101
+    0xB6: "Réunion",                                                   #0b010110110
+    0xB7: "Romania",                                                   #0b010110111
+    0xB8: "Russian Federation (the)",                                  #0b010111000
+    0xB9: "Rwanda",                                                    #0b010111001
+    0xBA: "Saint Barthélemy",                                          #0b010111010
+    0xBB: "Saint Helena, Ascension and Tristan da Cunha",              #0b010111011
+    0xBC: "Saint Kitts and Nevis",                                     #0b010111100
+    0xBD: "Anguilla",                                                  #0b010111101
+    0xBE: "Saint Lucia",                                               #0b010111110
+    0xBF: "Saint Martin (French part)",                                #0b010111111
+    0xC0: "Saint Pierre and Miquelon",                                 #0b011000000
+    0xC1: "Saint Vincent and the Grenadines",                          #0b011000001
+    0xC2: "San Marino",                                                #0b011000010
+    0xC3: "Sao Tome and Principe",                                     #0b011000011
+    0xC4: "Saudi Arabia",                                              #0b011000100
+    0xC5: "Senegal",                                                   #0b011000101
+    0xC6: "Serbia",                                                    #0b011000110
+    0xC7: "Seychelles",                                                #0b011000111
+    0xC8: "Sierra Leone",                                              #0b011001000
+    0xC9: "Singapore",                                                 #0b011001001
+    0xCA: "Slovakia",                                                  #0b011001010
+    0xCB: "Viet Nam",                                                  #0b011001011
+    0xCC: "Slovenia",                                                  #0b011001100
+    0xCD: "Somalia",                                                   #0b011001101
+    0xCE: "South Africa",                                              #0b011001110
+    0xCF: "Zimbabwe",                                                  #0b011001111
+    0xD0: "Spain",                                                     #0b011010000
+    0xD1: "South Sudan",                                               #0b011010001
+    0xD2: "Sudan (the)",                                               #0b011010010
+    0xD3: "Western Sahara*",                                           #0b011010011
+    0xD4: "Suriname",                                                  #0b011010100
+    0xD5: "Svalbard and Jan Mayen",                                    #0b011010101
+    0xD6: "Eswatini",                                                  #0b011010110
+    0xD7: "Sweden",                                                    #0b011010111
+    0xD8: "Switzerland",                                               #0b011011000
+    0xD9: "Syrian Arab Republic (the)",                                #0b011011001
+    0xDA: "Tajikistan",                                                #0b011011010
+    0xDB: "Thailand",                                                  #0b011011011
+    0xDC: "Togo",                                                      #0b011011100
+    0xDD: "Tokelau",                                                   #0b011011101
+    0xDE: "Tonga",                                                     #0b011011110
+    0xDF: "Trinidad and Tobago",                                       #0b011011111
+    0xE0: "United Arab Emirates (the)",                                #0b011100000
+    0xE1: "Tunisia",                                                   #0b011100001
+    0xE2: "Turkey",                                                    #0b011100010
+    0xE3: "Turkmenistan",                                              #0b011100011
+    0xE4: "Turks and Caicos Islands (the)",                            #0b011100100
+    0xE5: "Tuvalu",                                                    #0b011100101
+    0xE6: "Uganda",                                                    #0b011100110
+    0xE7: "Ukraine",                                                   #0b011100111
+    0xE8: "North Macedonia",                                           #0b011101000
+    0xE9: "Egypt",                                                     #0b011101001
+    0xEA: "United Kingdom of Great Britain and Northern Ireland (the)",#0b011101010
+    0xEB: "Guernsey",                                                  #0b011101011
+    0xEC: "Jersey",                                                    #0b011101100
+    0xED: "Isle of Man",                                               #0b011101101
+    0xEE: "Tanzania, the United Republic of",                          #0b011101110
+    0xEF: "United States of America (the)",                            #0b011101111
+    0xF0: "Virgin Islands (U.S.)",                                     #0b011110000
+    0xF1: "Burkina Faso",                                              #0b011110001
+    0xF2: "Uruguay",                                                   #0b011110010
+    0xF3: "Uzbekistan",                                                #0b011110011
+    0xF4: "Venezuela (Bolivarian Republic of)",                        #0b011110100
+    0xF5: "Wallis and Futuna",                                         #0b011110101
+    0xF6: "Samoa",                                                     #0b011110110
+    0xF7: "Yemen",                                                     #0b011110111
+    0xF8: "Zambia"                                                     #0b011111000
 }
     
 def _is_A2_reserved(a2):
@@ -309,115 +310,116 @@ def _is_A2_reserved(a2):
 def get_A2(value):
     if _is_A2_reserved(value):
         return "Reserved"
-    return MatchTable_A2.get(value, "Unknown")
+    return MatchTable_A2.get(value, "")
 
 
 MatchTable_A3 = {
     0x0: {
-        0x6F: "Not Used",                        # 0b001101111
-        0x0A: "Not Used",                        # 0b000001010
-        0x47: "Not Used",                        # 0b001000111
-        0xDB: "Not Used"                         # 0b011011011
+        0x6F: "Not Used",                                                                  # 0b001101111
+        0x0A: "Not Used",                                                                  # 0b000001010
+        0x47: "Not Used",                                                                  # 0b001000111
+        0xDB: "Not Used"                                                                   # 0b011011011
     },
     0x1: {
-        0x6F: "FMMC",                            # 0b001101111
-        0x0A: "National Emergency Management Agency (NEMA)",       # 0b000001010
-        0x47: "National Disaster Management Office (NDMO)",         # 0b001000111
-        0xDB: "Department of Disaster Prevention and Mitigation (DDPM)"   # 0b011011011
+        0x6F: "FMMC",                                                                      # 0b001101111
+        0x0A: "National Emergency Management Agency (NEMA)",                               # 0b000001010
+        0x47: "National Disaster Management Office (NDMO)",                                # 0b001000111
+        0xDB: "Department of Disaster Prevention and Mitigation (DDPM)"                    # 0b011011011
     },
     0x2: {
-        0x6F: "FDMA",                            # 0b001101111
-        0x0A: "Bureau of Meteorology (BOM)",      # 0b000001010
-        0x47: "Fiji Meteorological Service (FMS)", # 0b001000111
-        0xDB: "Thai Meteorological Department (TMD)"   # 0b011011011
+        0x6F: "FDMA",                                                                      # 0b001101111
+        0x0A: "Bureau of Meteorology (BOM)",                                               # 0b000001010
+        0x47: "Fiji Meteorological Service (FMS)",                                         # 0b001000111
+        0xDB: "Thai Meteorological Department (TMD)"                                       # 0b011011011
     },
     0x3: {
-        0x6F: "Related Ministries",               # 0b001101111
-        0x0A: "Australian Climate Service (ACS)", # 0b000001010
-        0x47: "Hydrology Section, Fiji Water Authority (FWA)",      # 0b001000111
-        0xDB: "National Disaster Warning Center (NDWC)"   # 0b011011011
+        0x6F: "Related Ministries",                                                        # 0b001101111
+        0x0A: "Australian Climate Service (ACS)",                                          # 0b000001010
+        0x47: "Hydrology Section, Fiji Water Authority (FWA)",                             # 0b001000111
+        0xDB: "National Disaster Warning Center (NDWC)"                                    # 0b011011011
     },
     0x4: {
-        0x6F: "Municipality",                                      # 0b001101111
-        0x0A: "Geoscience Australia (GA)",                          # 0b000001010
-        0x47: "Mineral Resources Department (MRD)",                 # 0b001000111
-        0xDB: "Department of Mineral Resources (DMR)"               # 0b011011011
+        0x6F: "Municipality",                                                              # 0b001101111
+        0x0A: "Geoscience Australia (GA)",                                                 # 0b000001010
+        0x47: "Mineral Resources Department (MRD)",                                        # 0b001000111
+        0xDB: "Department of Mineral Resources (DMR)"                                      # 0b011011011
     },
     0x5: {
-        0x6F: "Reserved",                                          # 0b001101111
-        0x0A: "Commonwealth Scientific and Industrial Research Organisation (CSIRO)",   # 0b000001010
-        0x47: "Fiji Broadcasting Corporation (FBC)",                # 0b001000111
-        0xDB: "Navy Hydrographic Department, Royal Thai Navy (RTN)" # 0b011011011
+        0x6F: "Reserved",                                                                  # 0b001101111
+        0x0A: "Commonwealth Scientific and Industrial Research Organisation (CSIRO)",      # 0b000001010
+        0x47: "Fiji Broadcasting Corporation (FBC)",                                       # 0b001000111
+        0xDB: "Navy Hydrographic Department, Royal Thai Navy (RTN)"                        # 0b011011011
     },
     0x6: {
-        0x6F: "Reserved",                                          # 0b001101111
-        0x0A: "Australian Bureau of Statistics (ABS)",              # 0b000001010
-        0x47: "Reserved",                                          # 0b001000111
-        0xDB: "Department of Water Resources (DWR)"                 # 0b011011011
+        0x6F: "Reserved",                                                                  # 0b001101111
+        0x0A: "Australian Bureau of Statistics (ABS)",                                     # 0b000001010
+        0x47: "Reserved",                                                                  # 0b001000111
+        0xDB: "Department of Water Resources (DWR)"                                        # 0b011011011
     },
     0x7: {
-        0x6F: "Reserved",                                          # 0b001101111
-        0x0A: "Resilience New South Wales (Resilience NSW)",        # 0b000001010
-        0x47: "Reserved",                                          # 0b001000111
-        0xDB: "Royal Irrigation Department (RID)"                   # 0b011011011
+        0x6F: "Reserved",                                                                  # 0b001101111
+        0x0A: "Resilience New South Wales (Resilience NSW)",                               # 0b000001010
+        0x47: "Reserved",                                                                  # 0b001000111
+        0xDB: "Royal Irrigation Department (RID)"                                          # 0b011011011
     },
     0x8: {
-        0x6F: "Reserved",                                          # 0b001101111
-        0x0A: "State Emergency Service New South Wales (SES)",      # 0b000001010
-        0x47: "Reserved",                                          # 0b001000111
-        0xDB: "Department of Pollution Control (DPC)"               # 0b011011011
+        0x6F: "Reserved",                                                                  # 0b001101111
+        0x0A: "State Emergency Service New South Wales (SES)",                             # 0b000001010
+        0x47: "Reserved",                                                                  # 0b001000111
+        0xDB: "Department of Pollution Control (DPC)"                                      # 0b011011011
     },
     0x9: {
-        0x6F: "New South Wales Rural Fire Service (NSW RFS)",       # 0b001101111
-        0x0A: "Reserved",                                          # 0b000001010
+        0x6F: "New South Wales Rural Fire Service (NSW RFS)",                              # 0b001101111
+        0x0A: "Reserved",                                                                  # 0b000001010
         0x47: "Geo-Informatics and Space Technology Development Agency (GISTDA)",          # 0b001000111
-        0xDB: "Reserved"                                           # 0b011011011
+        0xDB: "Reserved"                                                                   # 0b011011011
     },
     0xA: {
-        0x6F: "Reserved",                                                     # 0b001101111
-        0x0A: "Joint Australian Tsunami Warning Centre (JATWC)",               # 0b000001010
-        0x47: "Reserved",                                                     # 0b001000111
-        0xDB: "Electricity Generating Authority of Thailand (EGAT)"            # 0b011011011
+        0x6F: "Reserved",                                                                  # 0b001101111
+        0x0A: "Joint Australian Tsunami Warning Centre (JATWC)",                           # 0b000001010
+        0x47: "Reserved",                                                                  # 0b001000111
+        0xDB: "Electricity Generating Authority of Thailand (EGAT)"                        # 0b011011011
     },
     0xB: {
-        0x6F: "Reserved",                                                     # 0b001101111
-        0x0A: "Flood Knowledge Centre (FKC)",                                  # 0b000001010
-        0x47: "Reserved",                                                     # 0b001000111
-        0xDB: "Royal Forest Department (RFD)"                                  # 0b011011011
+        0x6F: "Reserved",                                                                  # 0b001101111
+        0x0A: "Flood Knowledge Centre (FKC)",                                              # 0b000001010
+        0x47: "Reserved",                                                                  # 0b001000111
+        0xDB: "Royal Forest Department (RFD)"                                              # 0b011011011
     },
     0xC: {
-        0x6F: "Reserved",                                                     # 0b001101111
-        0x0A: "Australian Broadcasting Corporation (ABC)",                     # 0b000001010
-        0x47: "Reserved",                                                     # 0b001000111
-        0xDB: "Department of Parks, Wildlife and Plant Conservation (DPWPC)"   # 0b011011011
+        0x6F: "Reserved",                                                                  # 0b001101111
+        0x0A: "Australian Broadcasting Corporation (ABC)",                                 # 0b000001010
+        0x47: "Reserved",                                                                  # 0b001000111
+        0xDB: "Department of Parks, Wildlife and Plant Conservation (DPWPC)"               # 0b011011011
     },
     0xD: {
-        0x6F: "Reserved",                                                     # 0b001101111
-        0x0A: "Reserved",                                                      # 0b000001010
-        0x47: "Reserved",                                                      # 0b001000111
-        0xDB: "Water Crisis Prevention Center (WCPC)"                          # 0b011011011
+        0x6F: "Reserved",                                                                  # 0b001101111
+        0x0A: "Reserved",                                                                  # 0b000001010
+        0x47: "Reserved",                                                                  # 0b001000111
+        0xDB: "Water Crisis Prevention Center (WCPC)"                                      # 0b011011011
     },
     0xE: {
-        0x6F: "Reserved",                                                     # 0b001101111
-        0x0A: "Reserved",                                                      # 0b000001010
-        0x47: "Reserved",                                                      # 0b001000111
-        0xDB: "Reserved"                                                       # 0b011011011
+        0x6F: "Reserved",                                                                  # 0b001101111
+        0x0A: "Reserved",                                                                  # 0b000001010
+        0x47: "Reserved",                                                                  # 0b001000111
+        0xDB: "Reserved"                                                                   # 0b011011011
     }
 }
 
-def _is_A3_reserved(a3, provider_id):
-    return (a3 in {0b001101111, 0b000001010, 0b001000111, 0b011011011}) and (provider_id in range(0b01110 + 1, 0b100000))
+
+def _is_A3_reserved(a2, a3):
+    return (a2 in {0b001101111, 0b000001010, 0b001000111, 0b011011011}) and (a3 in range(0b01110 + 1, 0b100000))
     
-def get_A3(a3, provider_id):
-    if provider_id in MatchTable_A3 and a3 in MatchTable_A3.get(provider_id, {}):
-        return MatchTable_A3.get(a3).get(provider_id)
-    if _is_A3_reserved(a3, provider_id):
+def get_A3(a2, a3):
+    if a3 in MatchTable_A3 and a2 in MatchTable_A3.get(a3, {}):
+        return MatchTable_A3.get(a3).get(a2)
+    if _is_A3_reserved(a2, a3):
         return "Reserved"
     else:
         return "Unknown Provider"
 
 MatchTable_A4 = {
-    0x0: "not used",                                                   # 0b0000000
+    0x0: "not used",                                                    # 0b0000000
     0x1: "Air strike",                                                  # 0b0000001
     0x2: "Attack on IT systems",                                        # 0b0000010
     0x3: "Attack with nuclear weapons",                                 # 0b0000011
@@ -434,7 +436,7 @@ MatchTable_A4 = {
     0xE: "Acid rain",                                                   # 0b0001110
     0xF: "Air pollution",                                               # 0b0001111
     0x10: "Contaminated drinking water",                                # 0b0010000
-    0x11: "Gas leak",                                                    # 0b0010001
+    0x11: "Gas leak",                                                   # 0b0010001
     0x12: "Marine pollution",                                           # 0b0010010
     0x13: "Noise pollution",                                            # 0b0010011
     0x14: "Plague of insects",                                          # 0b0010100
@@ -459,7 +461,7 @@ MatchTable_A4 = {
     0x27: "Landslide",                                                  # 0b0100111
     0x28: "Lava flow",                                                  # 0b0101000
     0x29: "Pyroclastic flow",                                           # 0b0101001
-    0x2A: "Snowdrifts",                                                  # 0b0101010
+    0x2A: "Snowdrifts",                                                 # 0b0101010
     0x2B: "Tidal wave",                                                 # 0b0101011
     0x2C: "Tsunami",                                                    # 0b0101100
     0x2D: "Volcanic mud flow",                                          # 0b0101101
@@ -487,7 +489,7 @@ MatchTable_A4 = {
     0x43: "Floating ice / icebergs",                                    # 0b1000011
     0x44: "Flood",                                                      # 0b1000100
     0x45: "Fog",                                                        # 0b1000101
-    0x46: "Hail",                                                        # 0b1000110
+    0x46: "Hail",                                                       # 0b1000110
     0x47: "Heat wave",                                                  # 0b1000111
     0x48: "Lightning",                                                  # 0b1001000
     0x49: "Pollens",                                                    # 0b1001001
@@ -508,11 +510,11 @@ MatchTable_A4 = {
     0x58: "SAFETY - Bomb/ammunition discovery",                         # 0b1011000
     0x59: "Demonstration",                                              # 0b1011001
     0x5A: "Hazardous material accident",                                # 0b1011010
-    0x5B: "Life Threatening situation",                                  # 0b1011011
+    0x5B: "Life Threatening situation",                                 # 0b1011011
     0x5C: "Major event",                                                # 0b1011100
     0x5D: "Missing person/abduction",                                   # 0b1011101
-    0x5E: "Risk of explosion",                                           # 0b1011110
-    0x5F: "Safety warning",                                              # 0b1011111
+    0x5E: "Risk of explosion",                                          # 0b1011110
+    0x5F: "Safety warning",                                             # 0b1011111
     0x60: "Undefined flying object",                                    # 0b1100000
     0x61: "Unidentified animal",                                        # 0b1100001
     0x62: "Chemical attack",                                            # 0b1100010
@@ -655,10 +657,8 @@ def _is_A4_reserved(a4):
 def get_A4(a4):
     if _is_A4_reserved(a4):
         return "Reserved"
-    elif a4 in MatchTable_A4:
-        return MatchTable_A4.get(a4)
     else:
-        return "Unknown Hazard Type"
+        return MatchTable_A4.get(a4, "Unknown Hazard Type")
 
 MatchTable_A5 = {
     0x0: "Unknown",                                                     # 0b00
@@ -682,19 +682,19 @@ def _is_A7_not_used(a7):
     return a7 in {0, range(0b10011101100001, 0b11111111111111+1)}
     
 def _get_A7_week_day(a7):
-    if a7 in range(0b00000000000001, 0b00000000000001+1440):
+    if a7 in range(1, 1441): #range(0b00000000000001, 0b00000000000001+1440):
         return "MONDAY"
-    elif a7 in range(0b00010110100001, 0b00010110100001+1440):
+    elif a7 in range(1441,2881): #range(0b00010110100001, 0b00010110100001+1440):
         return "TUESDAY"
-    elif a7 in range(0b00101101000001, 0b00101101000001+1440):
+    elif a7 in range(2881, 4321): #range(0b00101101000001, 0b00101101000001+1440):
         return "WEDNESDAY"
-    elif a7 in range(0b01000011100001, 0b01000011100001+1440):
+    elif a7 in range(4321, 5761): #range(0b01000011100001, 0b01000011100001+1440):
         return "THURSDAY"
-    elif a7 in range(0b01011010000001, 0b01011010000001+1440):
+    elif a7 in range(5761, 7201): #range(0b01011010000001, 0b01011010000001+1440):
         return "FRIDAY"
-    elif a7 in range(0b01110000100001, 0b01110000100001+1440):
+    elif a7 in range(7201, 8641): #range(0b01110000100001, 0b01110000100001+1440):
         return  "SATURDAY"
-    elif a7 in range(0b10000111000001, 0b10000111000001+1440):
+    elif a7 in range(8641, 10081): #range(0b10000111000001, 0b10000111000001+1440):
         return "SUNDAY"
     else:
         return "INVALID"
@@ -731,7 +731,8 @@ MatchTable_A8 = {
 }
 
 def get_A8(a8):
-    return MatchTable_A6.get(a8, "Invalid code")        
+    #print(a8)
+    return MatchTable_A8.get(a8, "Invalid code")        
     
 MatchTable_A9 = {
     0x0: "International library",                                        # 0b0
@@ -796,9 +797,9 @@ def _get_table_A11_0_1(data):
         return MatchTable_A11_0_1.get(data, "")
     
 def _get_table_A11_0_2(data):
-    if data in range(0b00001000, 0b01111110):
+    if data in range(0x08, 0x7E): #range(0b00001000, 0b01111110):
         return "reserved"
-    elif data in range(0b10000000, 0b11111110):
+    elif data in range(0x80, 0xFE): #range(0b10000000, 0b11111110):
         return "Reserved for the evacuation action instruction text for J-Alert"
     else:
         return MatchTable_A11_0_2.get(data, "")
@@ -812,10 +813,12 @@ def _get_table_A11_1_2(data):
 def _get_table_A11_0(A11):
     msg = ''
     A11_binary = format(A11, "010b")    
-    msg += _get_table_A11_0_1(int(A11_binary[0:2], 2))
+    A11_1 = int(A11_binary[0:2], 2)
+    A11_2 = int(A11_binary[2:10], 2)
+    msg += _get_table_A11_0_1(A11_1)
     if msg != '':
         msg += ' '
-    msg += _get_table_A11_0_2(int(A11_binary[2:10], 2))
+    msg += _get_table_A11_0_2(A11_2)
     return msg
         
         
@@ -823,19 +826,23 @@ def _get_table_A11_1(A11, A9_bit1):
     msg = ""
     if A9_bit1 == 0:    
         A11_binary = format(A11, "010b") 
-        msg += _get_table_A11_1_1(int(A11_binary[0:5], 2))
+        A11_1 = int(A11_binary[0:5], 2)
+        A11_2 = int(A11_binary[5:10], 2)
+        msg += _get_table_A11_1_1(A11_1)
         if msg != '':
             msg += ' '
-        msg += _get_table_A11_1_2(int(A11_binary[5:10], 2))
+        msg += _get_table_A11_1_2(A11_2)
     return msg
     
 def get_A11(A11, DCX_type, A9_bit1 = 999):
     if A11 == 0 and DCX_type == 2:
         return "Not specified (Reference EX2 to EX7.)"
     if DCX_type in {0, 1, 2}:
-        return "\"" + _get_table_A11_0(A11) + "\""
+        tmp = _get_table_A11_0(A11)
+        return "\"" + tmp + "\""
     elif DCX_type == 3:
-        return "\"" + _get_table_A11_1(A11, A9_bit1) + "\""
+        tmp = _get_table_A11_1(A11, A9_bit1)
+        return "\"" + tmp + "\""
     else:
         return ""
 
@@ -875,7 +882,7 @@ MatchTable_A14 = {
 }
 
 def get_A14(a14):
-    return MatchTable_A14.get(a14, "Invalid radius")
+    return MatchTable_A14.get(a14, 0)
 
 MatchTable_A15 = {
     0x0: 0.216,                                                         # 0b00000
@@ -913,7 +920,7 @@ MatchTable_A15 = {
 }
 
 def get_A15(a15):
-    return MatchTable_A15.get(a15, "Invalid radius")
+    return MatchTable_A15.get(a15, 0)
 
 MatchTable_A17 = {
     0b00: "B1 - Improved Resolution of Main Ellipse",
@@ -1709,22 +1716,22 @@ MatchTable_A18_D26 = {
 }
 
 MatchTable_A18_D27 = {
-        0b0000: "40 < dB ≤ 45",
-        0b0001: "45 < dB ≤ 50",
-        0b0010: "50 < dB ≤ 60",
-        0b0011: "60 < dB ≤ 70",
-        0b0100: "70 < dB ≤ 80 (loud)",
-        0b0101: "80 < dB ≤ 90 (very loud)",
-        0b0110: "90 < dB ≤ 100 (very loud)",
-        0b0111: "100 < dB ≤ 110 (very loud)",
-        0b1000: "110 < dB ≤ 120 (extremely loud)",
-        0b1001: "120 < dB ≤ 130 (extremely loud)",
-        0b1010: "130 < dB ≤ 140 (threshold of pain)",
-        0b1011: "dB > 140 (pain)",
-        0b1100: "not used",
-        0b1101: "not used",
-        0b1110: "not used",
-        0b1111: "not used"
+    0x00: "40<dB≤45",                      # 0b0000
+    0x01: "45<dB≤50",                      # 0b0001
+    0x02: "50<dB≤60",                      # 0b0010
+    0x03: "60<dB≤70",                      # 0b0011
+    0x04: "70<dB≤80(loud)",                # 0b0100
+    0x05: "80<dB≤90(very loud)",            # 0b0101
+    0x06: "90<dB≤100(very loud)",           # 0b0110
+    0x07: "100<dB≤110(very loud)",          # 0b0111
+    0x08: "110<dB≤120(extremely loud)",     # 0b1000
+    0x09: "120<dB≤130(extremely loud)",     # 0b1001
+    0x0A: "130<dB≤140(threshold of pain)",   # 0b1010
+    0x0B: "dB>140(pain)",                  # 0b1011
+    0x0C: "notused",                       # 0b1100
+    0x0D: "notused",                       # 0b1101
+    0x0E: "notused",                       # 0b1110
+    0x0F: "notused"                        # 0b1111
 }
 
 MatchTable_A18_D28 = {
@@ -1795,10 +1802,10 @@ MatchTable_A18_D32 = {
 }
 
 MatchTable_A18_D33 = {
-    0x0: "Biological agents. These include bacteria, viruses, parasites, and fungi (such as yeasts and molds).",  # 0b00
+    0x0: "Biological agents. These include bacteria, virusessites, and fungi (such as yeasts and molds).",  # 0b00
     0x1: "Biotoxins. These refer to a group of substances with a biological origin that are toxic and poisonous to humans. Often, biotoxins are produced by plants, bacteria, insects, or certain animals, among others. Continuous exposure to these may cause, at the very least, a series of inflammatory reactions throughout the body.",  # 0b01
     0x2: "Blood and blood products. While blood isn't considered a biological hazard, it can still bring potential risks if it's contaminated or its source is in any way infected. Also, blood products such as red blood cells, white blood cells, plasma, tissues, and platelets are also hazardous if not properly handled.",  # 0b10
-    0x3: "Environmental specimens. Generally, these refer to plants, soil, or water that potentially contain biological agents (include bacteria, viruses, parasites, and fungi) and biotoxins."  # 0b11
+    0x3: "Environmental specimens. Generally, these refer to plants, soil, or water that potentially contain biological agents (include bacteria, virusessites, and fungi) and biotoxins."  # 0b11
 }
 
 MatchTable_A18_D34 = {
@@ -2051,18 +2058,18 @@ def _get_msg_A18_wind(a18_binary):
     D5 = MatchTable_A18_D5.get(int(a18_binary[4:7],2), "")
     message += "\tWind speed : " + D8 + '\n'            
     message += "\tHeight of the wave : " + D5 + '\n'            
-    return message
+    message
 
 def _get_msg_A18_solarstorm(a18_binary):
     message = ''
     D21 = MatchTable_A18_D21.get(int(a18_binary[0:3],2), "")
-    message += "\tGeomagnetic scale : " + D21 + '\n'            
+    message += "\tGeomagnetic scale : " + D21 + '\n'  
     return message
         
 def _get_msg_A18_terrorism(a18_binary):
     message = ''
     D22 = MatchTable_A18_D22.get(int(a18_binary[0:3],2), "")
-    message += "\tTerrorism threat level : " + D22 + '\n'            
+    message += "\tTerrorism threat level : " + D22 + '\n'
     return message
 
 def _get_msg_A18_fire(a18_binary):
@@ -2094,7 +2101,7 @@ def _get_msg_A18_pandemia(a18_binary):
 def _get_msg_A18_noise(a18_binary):
     message = ''
     D27 = MatchTable_A18_D27.get(int(a18_binary[0:4],2), "")
-    message += "\tNoise range : " + D27 + '\n'            
+    message += "\tNoise range : " + D27 + '\n'   
     return message
 
 def _get_msg_A18_air(a18_binary):
@@ -2235,7 +2242,7 @@ def _get_A18_message_B4(a18_binary, a4):
         message = _get_msg_A18_uv(a18_binary)
     elif a4 == 0x35 or a4 == 0x33:  # 0b0110101 or 0b0110011
         message = _get_msg_A18_pandemia(a18_binary)
-    elif a4 == 0x23:  # 0b0010011
+    elif a4 == 0x13:  # 0b0010011
         message = _get_msg_A18_noise(a18_binary)
     elif a4 == 0x0F:  # 0b0001111
         message = _get_msg_A18_air(a18_binary)
@@ -2304,8 +2311,8 @@ def MT44_CAMF_msg_gen(CAMF):
     #A12, A13, A14, A15, A16
     if not is_DCX_valid(DCX_type):
         print("Not Supported MT44 Message")
-        return ''
-    if is_DCX_JAlert(DCX_type):
+        return '', 999, {}
+    if is_DCX_JAlert(DCX_type): #==1
         message += 'A12 to A18 : Not used\n'
     else:
         message += 'Target Area : Area enclosed in the ellipse indicated by the following parameters\n'
@@ -2323,7 +2330,7 @@ def MT44_CAMF_msg_gen(CAMF):
         message += '\tA15-Ellipse Semi-Minor Axis : ' + str(format(A15,".3f")) +'(km)\n'
         #A16
         A16 = -90+180/2**6*CAMF.A16
-        message +="\tA16-Ellipse Azimuth : " + str(format(A13,".2f")) + '(degrees)\n'
+        message +="\tA16-Ellipse Azimuth : " + str(format(A16,".2f")) + '(degrees)\n'
         #A17
         A17 = get_A17(CAMF.A17)
         message += "A17-Main Subject for Specific Settings : " + A17 + "\n"

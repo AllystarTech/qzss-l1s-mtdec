@@ -26,6 +26,7 @@ def decoder_MT43(binary_data):
         print_message = mt43_seismic_dec(binary_data[7:])
         return print_message
     elif Dc == 4: #Nankai Trough Earthquake
+
         print_message = mt43_nankai_dec(binary_data[7:])
         return print_message
     elif Dc == 5: #Tsunami
@@ -39,9 +40,13 @@ def decoder_MT43(binary_data):
         return print_message
     elif Dc == 8: #Volcano
         print_message = mt43_volcano_dec(binary_data[7:])
+        #print("vocalno:", hex_data, '\n', binary_data)
+
         return print_message
     elif Dc == 9: #Ash Fall
         print_message = mt43_ashfall_dec(binary_data[7:])
+        #print("ash fall:", hex_data, '\n', binary_data)
+
         return print_message
     elif Dc == 10: #Weather
         print_message = mt43_weather_dec(binary_data[7:])

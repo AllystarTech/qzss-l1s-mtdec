@@ -1,3 +1,4 @@
+
 # -*- coding: utf-8 -*-
 
 #  File Name: MT44_ExtemdedMsg_decoder.py
@@ -30,7 +31,7 @@ class ExtendedMsg:
             self.EX11 = None 
             self.Vn = None
 
-def MT44_ExtMsg_dec_0(binary_data):
+def MT44_ExtMsg_dec_0(binary_data, dcxtype):
     table = {
         'EX1': 16,
         'EX2': 1,
@@ -41,7 +42,7 @@ def MT44_ExtMsg_dec_0(binary_data):
         'EX7': 7,
         'Vn': 6    
     }
-    extracted_values = ExtendedMsg(0)
+    extracted_values = ExtendedMsg(dcxtype)
 
     start = 0
     for parameter, num_bits in table.items():
@@ -90,7 +91,7 @@ def MT44_ExtMsg_dec_3(binary_data):
 def MT44_ExtMsg_dec(binary_data, DCX_type):
     extracted_values = 0
     if DCX_type == 0 or DCX_type == 2:
-        extracted_values = MT44_ExtMsg_dec_0(binary_data)
+        extracted_values = MT44_ExtMsg_dec_0(binary_data, DCX_type)
     elif DCX_type == 1:
         extracted_values = MT44_ExtMsg_dec_1(binary_data)
     elif DCX_type == 3:
