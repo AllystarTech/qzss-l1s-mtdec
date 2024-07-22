@@ -15,7 +15,7 @@ import warnings
 #sys.path.append("./Jupyter/code")
 #input_path_read = "D:/cherry/QZSS L1S/japan test 0701/COM18(Enhanced)_115200_2024-07-01_15.33.47.GPS"  
 
-input_path_read = "D:/cherry/QZSS L1S/nmea/COM6(Enhanced)_115200_2024-06-27_09.57.38.GPS"  
+input_path_read = "D:/cherry/QZSS L1S/nmea/0627_murata_shanghai.GPS"  
 input_path_write = "D:/cherry/QZSS L1S/decoded messages/decode.txt"
 
 from MT43_decoder import decoder_MT43
@@ -64,8 +64,8 @@ def decoder_MT43_MT44(message, file_path_write):
 
 if __name__ == "__main__":
     
-    #input_path_read = input("Enter the path of the nmea.txt file: ")
-    #input_path_write = input("Enter the path of the file to store the MT43 MT44 decoded messages: ")
+    input_path_read = input("Enter the path of the nmea.txt file: ")
+    input_path_write = input("Enter the path of the file to store the MT43 MT44 decoded messages: ")
     
     try:
         with open(input_path_read, "r", encoding='latin-1') as file:
