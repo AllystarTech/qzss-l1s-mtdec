@@ -3009,7 +3009,7 @@ matchtable_mt43_weather_Ar = { #39
 }
 
 def get_mt43_weather_Ar(Ar):
-    Ar_dec = matchtable_mt43_weather_Ww.get(Ar, "発表状況(コード番号：N)")
+    Ar_dec = matchtable_mt43_weather_Ar.get(Ar, "発表状況(コード番号：N)")
     return Ar_dec
 
 matchtable_mt43_weather_Ww = { #40
