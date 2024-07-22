@@ -3816,9 +3816,17 @@ def mt43_nankai_dec(binary_message):
     message += "防災気象情報(南海トラフ地震)\n南海トラフ地震に関連する情報が発表されました\n\n"
     message += "発表時刻：" + str(AtMo) + " 月 " + str(AtD) + " 日 " + str(AtH) + " 時 " + str(AtMi) + " 分\n"
     message += "地震関連情報：" + get_mt43_nankai_Is(Is) + "\n"
+    Te_bytes = b''
     for i in range(0, 18):
-        if Te[i] != 0:
-            message += chr(Te[i]) + "\n"
+        if Te[i] == 0:
+            break
+        #message += chr(Te[i]) + "\n"
+        # Convert the integer to a byte array
+        byte_Tei = bytes([Te[i]])
+        Te_bytes += byte_Tei
+        # Decode the byte array using UTF-8
+    message += Te_bytes.decode('utf-8')
+    message += '\n'
    
     return message
 
